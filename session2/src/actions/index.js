@@ -1,6 +1,10 @@
-const increment = 'INCREMENT';
-const decrement = 'DECREMENT';
+export const INCREMENT = 'INCREMENT'
+export const DECREMENT = 'DECREMENT'
 
-export const INCREMENT = ()=> ({type: increment})
+export const increment = () => ({
+  type: INCREMENT
+})
 
-export const DECREMENT = ()=> ({type: decrement})
+export const decrement = () => ({
+  type: DECREMENT
+})
