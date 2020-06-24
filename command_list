@@ -8,3 +8,7 @@ yarn start
 
 https://babeljs.io/repl
 https://webpack.js.org/
+
+https://redux.js.org/
+
+yarn add redux react-redux
