@@ -5,3 +5,6 @@ yarn global add create-react-app
 create-react-app ./session2/
 
 yarn start
+
+https://babeljs.io/repl
+https://webpack.js.org/
