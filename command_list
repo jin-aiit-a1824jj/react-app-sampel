@@ -12,3 +12,15 @@ https://webpack.js.org/
 https://redux.js.org/
 
 yarn add redux react-redux
+
+
+curl --request GET --url 'https://udemy-utils.herokuapp.com/api/v1/events?token=token123'
+
+curl --request POST --url 'https://udemy-utils.herokuapp.com/api/v1/events?token=token123' --header 'Content-Type: application/json' --data '{"title": "event 11", "body":"body for event 11"}' 
+
+curl --request PUT --url 'https://udemy-utils.herokuapp.com/api/v1/events/1?token=token123' --header 'Content-Type: application/json' --data '{"title": "changed title", "body":"changed body"}'
+
+curl --request DELETE --url 'https://udemy-utils.herokuapp.com/api/v1/events/1?token=token123' --header 'Content-Type: application/json'
+
+yarn install axios
+yarn add redux-thunk
