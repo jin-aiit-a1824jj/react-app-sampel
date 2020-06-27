@@ -1,8 +1,10 @@
 import axios from 'axios'
+import { reduxForm } from 'redux-form'
 
 export const READ_EVENTS = 'READ_EVENTS'
 export const CREATE_EVENTS = 'CREATE_EVENTS'
 export const DELETE_EVENTS = 'DELETE_EVENTS'
+export const GET_EVENTS = 'GET_EVENTS'
 
 const ROOT_URL = 'https://udemy-utils.herokuapp.com/api/v1'
 const QUERYSTRING = '?token=token123'
@@ -21,4 +23,10 @@ export const postEvents = value => async dispatch => {
 export const deleteEvents = id => async dispatch => {
   await axios.delete(`${ROOT_URL}/events/${id}${QUERYSTRING}`)
   dispatch({ type: DELETE_EVENTS, id })
+};
+
+export const getEvents = id => async dispatch => {
+  const response = await axios.get(`${ROOT_URL}/events/${id}${QUERYSTRING}`)
+  //console.log(response)
+  dispatch({ type: GET_EVENTS, response })
 };

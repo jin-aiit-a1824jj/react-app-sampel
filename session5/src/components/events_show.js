@@ -14,6 +14,12 @@ class EventsShow extends Component {
     this.onDeleteClick = this.onDeleteClick.bind(this)
   }
 
+  componentDidMount(){
+    const { id } = this.props.match.params
+    if (id) this.props.getEvents(id)
+
+  }
+
   renderField(field){
     const { input, label, type, meta: {touched, error}} = field
     return (
@@ -60,7 +66,12 @@ class EventsShow extends Component {
   }
 }
 
-const mapDispatchToProps = ({ deleteEvents })
+const mapDispatchToProps = ({ deleteEvents, getEvents })
+
+const  mapStateToProps = (state, ownProps) => {
+  const event = state.events[ownProps.match.params.id]
+  return { initialValues: event, state }
+}
 
 const validate = values => {
   const errors = {}
@@ -71,6 +82,6 @@ const validate = values => {
   return errors
 }
 
-export default connect(null, mapDispatchToProps)(
-  reduxForm({validate, form: 'eventShowForm'})(EventsShow)
+export default connect(mapStateToProps, mapDispatchToProps)(
+  reduxForm({validate, form: 'eventShowForm', enableReinitialize: true})(EventsShow)
 )
