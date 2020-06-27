@@ -24,3 +24,6 @@ curl --request DELETE --url 'https://udemy-utils.herokuapp.com/api/v1/events/1?t
 
 yarn install axios
 yarn add redux-thunk
+
+yarn add react-router-dom
+yarn add redux-form
