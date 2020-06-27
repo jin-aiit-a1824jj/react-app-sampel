@@ -24,7 +24,7 @@ const store = createStore(reducer, enhancer)
 
 ReactDOM.render(
   <MuiThemeProvider>
-    <React.StrictMode>
+    
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
@@ -35,7 +35,6 @@ ReactDOM.render(
           </Switch>
         </BrowserRouter>
       </Provider>
-    </React.StrictMode>
   </MuiThemeProvider>,
   document.getElementById('root')
 );
