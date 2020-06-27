@@ -1,4 +1,4 @@
-import { READ_EVENTS, DELETE_EVENTS, GET_EVENTS} from '../actions'
+import { READ_EVENTS, DELETE_EVENTS, GET_EVENTS, PUT_EVENTS, CREATE_EVENTS} from '../actions'
 import _ from 'lodash'
 
 export default (event = {}, action) => {
@@ -11,6 +11,8 @@ export default (event = {}, action) => {
       //console.log(action.id);
       delete event[action.id];
       return { ...event };
+    case CREATE_EVENTS:
+    case PUT_EVENTS:
     case GET_EVENTS:
       //console.log(action.response.data);
       const data = action.response.data;

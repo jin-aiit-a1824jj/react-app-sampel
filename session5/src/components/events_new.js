@@ -31,7 +31,7 @@ class EventsNew extends Component {
 
   render() {
 
-    const { handleSubmit, pristine, submitting } = this.props
+    const { handleSubmit, pristine, submitting, invalid } = this.props
     //console.log(submitting);
     
     return (
@@ -43,7 +43,7 @@ class EventsNew extends Component {
           <Field label="Body" name="body" type="text" component={this.renderField}/>
         </div>
         <div>
-          <input type="submit" value="Submit" disabled={pristine || submitting}></input>
+          <input type="submit" value="Submit" disabled={pristine || submitting || invalid}></input>
           <Link to="/">Cancel</Link>
         </div>
       </form>

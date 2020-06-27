@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {Field, reduxForm } from 'redux-form';
 
-import { getEvents, deleteEvents, putEvnets } from '../actions';
+import { getEvents, deleteEvents, putEvents } from '../actions';
 
 class EventsShow extends Component {
 
@@ -31,7 +31,7 @@ class EventsShow extends Component {
   }
 
   async onSubmit(values) {
-    await this.props.postEvents(values)
+    await this.props.putEvents(values)
     this.props.history.push('/')
   }
 
@@ -45,7 +45,7 @@ class EventsShow extends Component {
 
   render() {
 
-    const { handleSubmit, pristine, submitting } = this.props
+    const { handleSubmit, pristine, submitting, invalid } = this.props
     //console.log(submitting);
     
     return (
@@ -57,7 +57,7 @@ class EventsShow extends Component {
           <Field label="Body" name="body" type="text" component={this.renderField}/>
         </div>
         <div>
-          <input type="submit" value="Submit" disabled={pristine || submitting}></input>
+          <input type="submit" value="Submit" disabled={pristine || submitting || invalid}></input>
           <Link to="/">Cancel</Link>
           <Link to="/" onClick={this.onDeleteClick}>Delete</Link>
         </div>
@@ -66,7 +66,7 @@ class EventsShow extends Component {
   }
 }
 
-const mapDispatchToProps = ({ deleteEvents, getEvents })
+const mapDispatchToProps = ({ deleteEvents, getEvents, putEvents })
 
 const  mapStateToProps = (state, ownProps) => {
   const event = state.events[ownProps.match.params.id]
